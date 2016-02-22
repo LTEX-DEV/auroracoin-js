@@ -113,9 +113,9 @@
     nginx_template: nginx-proxy.conf
     node_port: 9999
     NODE_ENV: ''
-    COOKIE_SALT: FILLMEIN 
+    COOKIE_SALT: backtrack 
     DB_HOST: 127.0.0.1
-    DB_PASSWORD: FILLMEIN
-    DB_PORT: FILLMEIN
-    DB_USER: FILLMEIN
-    PROXY_URL: FILLMEIN
+    DB_PASSWORD: frnd_xyz@123
+    DB_PORT: 5984
+    DB_USER: admin
+    PROXY_URL: https://hive-proxy.herokuapp.com?url=
