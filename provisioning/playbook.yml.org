@@ -1,4 +1,4 @@
-
+---
 - hosts: web
   sudo: yes
   tasks:
@@ -115,16 +115,16 @@
       service: name=nginx state=reloaded
 
   vars:
-    app_user: pravin
+    app_user: vagrant
     app_name: hivejs
     app_dir: "{{ base_dir }}/{{ app_name }}"
     base_dir: /home/{{ app_user }}
     nginx_template: nginx-proxy.conf
     node_port: 9009
     NODE_ENV: production
-    COOKIE_SALT:backtrack 
-    DB_HOST: 213.125.232.38
-    DB_PASSWORD: frnd_xyz@123
-    DB_PORT: 5984
-    DB_USER: admin
+    COOKIE_SALT: FILLMEIN
+    DB_HOST: FILLMEIN
+    DB_PASSWORD: FILLMEIN
+    DB_PORT: FILLMEIN
+    DB_USER: FILLMEIN
     PROXY_URL: FILLMEIN
