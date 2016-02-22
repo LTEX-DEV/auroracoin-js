@@ -1,12 +1,6 @@
-
-<<<<<<< HEAD
 ---
 - hosts: 127.0.0.1
   become: yes
-=======
-- hosts: web
-  sudo: yes
->>>>>>> origin
   tasks:
     - name: update software
       apt: update_cache=yes upgrade=dist
@@ -113,7 +107,6 @@
 
   vars:
     app_user: pravin
-<<<<<<< HEAD
     app_name: hive-js
     app_dir: "{{ base_dir }}/{{ app_name }}"
     base_dir: /home/{{ app_user }}
@@ -126,17 +119,3 @@
     DB_PORT: 5984
     DB_USER: admin
     PROXY_URL:https://hive-proxy.herokuapp.com?url=
-=======
-    app_name: hivejs
-    app_dir: "{{ base_dir }}/{{ app_name }}"
-    base_dir: /home/{{ app_user }}
-    nginx_template: nginx-proxy.conf
-    node_port: 9009
-    NODE_ENV: production
-    COOKIE_SALT:backtrack 
-    DB_HOST: 213.125.232.38
-    DB_PASSWORD: frnd_xyz@123
-    DB_PORT: 5984
-    DB_USER: admin
-    PROXY_URL: FILLMEIN
->>>>>>> origin
