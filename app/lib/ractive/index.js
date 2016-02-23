@@ -65,6 +65,7 @@ partials.svg_settings = require('hive-svg/settings.ract').template
 partials.svg_success = require('hive-svg/success.ract').template
 partials.svg_token_bitcoin = require('hive-svg/token_bitcoin.ract').template
 partials.svg_token_litecoin = require('hive-svg/token_litecoin.ract').template
+partials.svg_token_auroracoin = require('hive-svg/token_auroracoin.ract').template
 partials.svg_token = require('hive-svg/token.ract').template
 partials.svg_user = require('hive-svg/user.ract').template
 partials.svg_waggle = require('hive-svg/waggle.ract').template
