@@ -1,11 +1,13 @@
 'use strict';
 
 var xhr = require('xhr')
-var apiRoot = "https://chain.so/api/v2/get_price/LTC/BTC"
+//var apiLTCRoot = "https://chain.so/api/v2/get_price/LTC/BTC"
+var apiLTCRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-LTC"
+var apiAURRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-AUR"
 
 function ltcToBtc(callback){
   xhr({
-    uri: apiRoot,
+    uri: apiLTCRoot,
     timeout: 10000,
     method: 'GET'
   }, function(err, resp, body){
@@ -18,7 +20,32 @@ function ltcToBtc(callback){
   })
 }
 
+function aurToBtc(callback){
+  xhr({
+    uri: apiAURRoot,
+    timeout: 10000,
+    method: 'GET'
+  }, function(err, resp, body){
+    if(resp.statusCode !== 200) {
+      console.error(body)
+      return callback(err)
+    }
+
+    callback(null, toRate(JSON.parse(body)))
+  })
+}
+
+
+
+
 function toRate(res){
+  var price=res.result.Last;
+  return price;
+}
+
+
+
+/*function toRate(res){
   var validQuotes = res.data.prices
   .map(function(quote){
     return parseFloat(quote.price)
@@ -36,7 +63,9 @@ function toRate(res){
     return total
   }, 0)
 }
+*/
 
 module.exports = {
   ltcToBtc: ltcToBtc
+  aurToBtc: aurToBtc
 }
