@@ -15,7 +15,7 @@ module.exports = {
 module.exports = {
 bitcoin: bitcoin,
 testnet: bitcoin,
-yacoin: {
+auroracoin: {
 default: 'AUR'
 }
 }
