@@ -39,8 +39,8 @@ function aurToBtc(callback){
 
 
 function toRate(res){
-  var price=res.result.Last;
-  return price;
+  var price=res.result.Last
+  return price
 }
 
 
