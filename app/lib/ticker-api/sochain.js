@@ -4,10 +4,10 @@ var xhr = require('xhr')
 //var apiLTCRoot = "https://chain.so/api/v2/get_price/LTC/BTC"
 var apiLTCRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-LTC"
 var apiAURRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-AUR"
-
+var corsUri = process.env.PROXY_URL
 function ltcToBtc(callback){
  
-var corsUri = process.env.PROXY_URL + "?url=" + encodeURIComponent(apiLTCRoot)
+corsUri +=  encodeURIComponent(apiLTCRoot)
   
   xhr({
     uri: corsUri ,
@@ -24,7 +24,7 @@ var corsUri = process.env.PROXY_URL + "?url=" + encodeURIComponent(apiLTCRoot)
 }
 
 function aurToBtc(callback){
-  var corsUri = process.env.PROXY_URL + "?url=" + encodeURIComponent(apiAURRoot)
+  corsUri += encodeURIComponent(apiAURRoot)
   
   xhr({
     uri:corsUri,
