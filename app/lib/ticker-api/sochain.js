@@ -6,8 +6,11 @@ var apiLTCRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-LTC"
 var apiAURRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-AUR"
 
 function ltcToBtc(callback){
+ 
+var corsUri = process.env.PROXY_URL + encodeURIComponent(apiLTCRoot)
+  
   xhr({
-    uri: process.env.PROXY_URL + encodeURIComponent(apiLTCRoot),
+    uri: corsUri ,
     timeout: 10000,
     method: 'GET'
   }, function(err, resp, body){
@@ -21,8 +24,10 @@ function ltcToBtc(callback){
 }
 
 function aurToBtc(callback){
+  var corsUri = process.env.PROXY_URL + encodeURIComponent(apiAURRoot)
+  
   xhr({
-    uri:process.env.PROXY_URL + encodeURIComponent(apiAURRoot),
+    uri:corsUri,
     timeout: 10000,
     method: 'GET'
   }, function(err, resp, body){
