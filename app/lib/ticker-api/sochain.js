@@ -1,16 +1,16 @@
 'use strict';
 
 var xhr = require('xhr')
-//var apiLTCRoot = "https://chain.so/api/v2/get_price/LTC/BTC"
-var apiLTCRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-LTC"
+var apiLTCRoot = "https://chain.so/api/v2/get_price/LTC/BTC"
+//var apiLTCRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-LTC"
 var apiAURRoot = "https://bittrex.com/api/v1.1/public/getticker?market=BTC-AUR"
-var corsUri = process.env.PROXY_URL
+
 function ltcToBtc(callback){
  
-corsUri +=  encodeURIComponent(apiLTCRoot)
+  
   
   xhr({
-    uri: corsUri ,
+    uri: apiLTCRoot ,
     timeout: 10000,
     method: 'GET'
   }, function(err, resp, body){
@@ -24,10 +24,10 @@ corsUri +=  encodeURIComponent(apiLTCRoot)
 }
 
 function aurToBtc(callback){
-  corsUri += encodeURIComponent(apiAURRoot)
+  
   
   xhr({
-    uri:corsUri,
+    uri:apiAURRoot,
     timeout: 10000,
     method: 'GET'
   }, function(err, resp, body){
