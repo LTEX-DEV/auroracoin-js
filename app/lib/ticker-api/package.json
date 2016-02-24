@@ -9,6 +9,6 @@
     "xhr": "^1.4.1"
   },
 "browserify": {
-"transform": ["envify"]
+"transform": ["envify","brfs"]
 }
 }
