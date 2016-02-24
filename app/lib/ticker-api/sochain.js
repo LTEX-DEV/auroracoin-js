@@ -66,6 +66,6 @@ function toRate(res){
 */
 
 module.exports = {
-  ltcToBtc: ltcToBtc
+  ltcToBtc: ltcToBtc,
   aurToBtc: aurToBtc
 }
