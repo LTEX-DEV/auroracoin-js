@@ -4,18 +4,18 @@ var bitcoin = {
   default: 'BTC'
 }
 
+var litecoin: {
+    default: 'LTC'
+  }
+  
 module.exports = {
   bitcoin: bitcoin,
   testnet: bitcoin,
-  litecoin: {
-    default: 'LTC'
-  }
+  litecoin:litecoin,
+  auroracoin: {
+   default: 'AUR'
 }
 
-module.exports = {
-bitcoin: bitcoin,
-testnet: bitcoin,
-auroracoin: {
-default: 'AUR'
 }
-}
+
+
