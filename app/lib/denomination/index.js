@@ -4,7 +4,7 @@ var bitcoin = {
   default: 'BTC'
 }
 
-var litecoin: {
+var litecoin = {
     default: 'LTC'
   }
   
