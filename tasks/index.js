@@ -122,8 +122,9 @@ process.on('message', function(task){
        if (isDebug > -1) {
            console.log("debug arg exist");
     execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5859');
+    
   }
+    execArgs.push('--debug=5859');
     
     if(err) {
       console.error(err.message)
