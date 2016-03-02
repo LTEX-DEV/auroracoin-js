@@ -17,93 +17,16 @@ var tasks = {
 }
 
 tasks.dev = function(){
-  var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-           console.log("debug arg exist");
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5859');
-  }
+ 
   async.parallel([ 
-    function(){ 
-     var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-           console.log("debug arg exist");
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5860');
-  }
-      tasks.scripts()
-      
-    },
-    function(){  var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5861');
-  }
-  tasks.loader()
-      
-    },
-    function(){
-       var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-       
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5862');
-  }
-      
-      tasks.html()
-      
-    },
-    function(){ 
-        var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5863');
-  }
-      
-      tasks.styles()
-      
-    },
-    function(){ 
-     var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5864');
-  }
-      
-     
-     
-      tasks.images()
-      
-    }], function(){
-   var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5865');
-  }
-      
+      tasks.scripts,
+      tasks.loader,
+      tasks.html,
+      tasks.styles,
+      tasks.images], function(){
+  
     tasks.watch()
-    var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5866');
-  }
-      
     tasks.serve()
-  var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5867');
-  }
-      
     tasks.test()
   })
 }
@@ -117,15 +40,6 @@ process.on('message', function(task){
   })
 
   async.parallel(task, function(err){
-     var execArgs = process.execArgv,
-      isDebug = process.execArgv.indexOf('--debug');
-       if (isDebug > -1) {
-           console.log("debug arg exist");
-    execArgs.splice(isDebug, 1);
-    
-  }
-    execArgs.push('--debug=5859');
-    
     if(err) {
       console.error(err.message)
       console.error(err.stack)
