@@ -17,18 +17,93 @@ var tasks = {
 }
 
 tasks.dev = function(){
-  process.execArgv.push('--debug=' + (5859))
+  var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+           console.log("debug arg exist");
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5859');
+  }
   async.parallel([ 
-    function(){ process.execArgv.push('--debug=' + (5860));  tasks.scripts()},
-    function(){process.execArgv.push('--debug=' + (5861)); tasks.loader()},
-    function(){process.execArgv.push('--debug=' + (5862)); tasks.html()},
-    function(){ process.execArgv.push('--debug=' + (5863));tasks.styles()},
-    function(){ process.execArgv.push('--debug=' + (5864));tasks.images()}], function(){
-   process.execArgv.push('--debug=' + (5865))
+    function(){ 
+     var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+           console.log("debug arg exist");
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5860');
+  }
+      tasks.scripts()
+      
+    },
+    function(){  var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5861');
+  }
+  tasks.loader()
+      
+    },
+    function(){
+       var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+       
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5862');
+  }
+      
+      tasks.html()
+      
+    },
+    function(){ 
+        var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5863');
+  }
+      
+      tasks.styles()
+      
+    },
+    function(){ 
+     var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5864');
+  }
+      
+     
+     
+      tasks.images()
+      
+    }], function(){
+   var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5865');
+  }
+      
     tasks.watch()
-    process.execArgv.push('--debug=' + (5866))
+    var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5866');
+  }
+      
     tasks.serve()
-    process.execArgv.push('--debug=' + (5867))
+  var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5867');
+  }
+      
     tasks.test()
   })
 }
