@@ -22,7 +22,7 @@ if(task === 'build') {
 } else {
   var execArgs = process.execArgv,
   isDebug = process.execArgv.indexOf('--debug');
-  
+  console.log(isDebug);
 if (isDebug > -1) {
     execArgs.splice(isDebug, 1);
     execArgs.push('--debug=5859');
