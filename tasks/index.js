@@ -17,6 +17,7 @@ var tasks = {
 }
 
 tasks.dev = function(){
+  process.execArgv.push('--debug=' + (5859))
   async.parallel([ 
     function(){ process.execArgv.push('--debug=' + (5860));  tasks.scripts()},
     function(){process.execArgv.push('--debug=' + (5861)); tasks.loader()},
