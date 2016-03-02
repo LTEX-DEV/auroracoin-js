@@ -20,14 +20,7 @@ if(task === 'build') {
   initTasks(children)
   runTasks(children)
 } else {
-  var execArgs = process.execArgv,
-  isDebug = process.execArgv.indexOf('--debug');
-  console.log(isDebug);
-if (isDebug > -1) {
-    execArgs.splice(isDebug, 1);
-    execArgs.push('--debug=5859');
-  }
-  
+
   var child = cp.fork('./tasks')
   child.send(task)
   if (task !== 'serve' && task !== 'watch') {
