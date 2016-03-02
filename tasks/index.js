@@ -117,6 +117,14 @@ process.on('message', function(task){
   })
 
   async.parallel(task, function(err){
+     var execArgs = process.execArgv,
+      isDebug = process.execArgv.indexOf('--debug');
+       if (isDebug > -1) {
+           console.log("debug arg exist");
+    execArgs.splice(isDebug, 1);
+    execArgs.push('--debug=5859');
+  }
+    
     if(err) {
       console.error(err.message)
       console.error(err.stack)
