@@ -17,9 +17,17 @@ var tasks = {
 }
 
 tasks.dev = function(){
-  async.parallel([ tasks.scripts, tasks.loader, tasks.html, tasks.styles, tasks.images ], function(){
+  async.parallel([ 
+    function(){ process.execArgv.push('--debug=' + (5860));  tasks.scripts()},
+    function(){process.execArgv.push('--debug=' + (5861)); tasks.loader()},
+    function(){process.execArgv.push('--debug=' + (5862)); tasks.html()},
+    function(){ process.execArgv.push('--debug=' + (5863));tasks.styles()},
+    function(){ process.execArgv.push('--debug=' + (5864));tasks.images()}], function(){
+   process.execArgv.push('--debug=' + (5865))
     tasks.watch()
+    process.execArgv.push('--debug=' + (5866))
     tasks.serve()
+    process.execArgv.push('--debug=' + (5867))
     tasks.test()
   })
 }
