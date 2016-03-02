@@ -22,7 +22,7 @@ function bundle(inFile, outFilename, callback){
 
   // bundle
   prepareDir(outFilename, function(err){
-    if(err) return cb(err);
+    if(err) return callback(err);
 
     if(fs.existsSync(outFilename)) {
       fs.unlinkSync(outFilename)
