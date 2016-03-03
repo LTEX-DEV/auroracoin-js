@@ -17,14 +17,7 @@ var tasks = {
 }
 
 tasks.dev = function(){
- 
-  async.parallel([ 
-      tasks.scripts,
-      tasks.loader,
-      tasks.html,
-      tasks.styles,
-      tasks.images], function(){
-  
+  async.parallel([ tasks.scripts, tasks.loader, tasks.html, tasks.styles, tasks.images ], function(){
     tasks.watch()
     tasks.serve()
     tasks.test()
