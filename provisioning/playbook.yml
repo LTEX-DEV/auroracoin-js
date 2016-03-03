@@ -21,7 +21,7 @@
         - forever
 
     - name: install dependencies
-      shell: sudo npm install --production chdir="{{ app_dir }}"
+      shell: npm install --production chdir="{{ app_dir }}"
       become_user: "{{ app_user }}"
       tags:
       - update
