@@ -20,7 +20,6 @@ if(task === 'build') {
   initTasks(children)
   runTasks(children)
 } else {
-
   var child = cp.fork('./tasks')
   child.send(task)
   if (task !== 'serve' && task !== 'watch') {
@@ -71,4 +70,3 @@ function runTasks(children) {
     pair[0].send(pair[1])
   })
 }
-
