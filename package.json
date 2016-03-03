@@ -78,8 +78,5 @@
   "engines": {
     "node": "~0.10.26",
     "npm": "^2.1.0"
-  },
-  "config": {
-    "unsafe-perm":true
-}
+  }
 }
