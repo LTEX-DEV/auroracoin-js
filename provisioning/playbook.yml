@@ -1,6 +1,6 @@
 ---
 - hosts: 127.0.0.1
-  sudo : yes
+  become : yes
   tasks:
     - name: update software
       apt: update_cache=yes upgrade=dist
@@ -15,21 +15,21 @@
 
     - name: install npm globals
       npm: state=present global=yes name={{ item }}
-      sudo: yes
+      become: yes
       with_items:
         - aperture
         - forever
 
     - name: install dependencies
       shell: npm install --production chdir="{{ app_dir }}"
-      sudo_user: "{{ app_user }}"
+      become_user: "{{ app_user }}"
       tags:
       - update
 
     - name: build
       #shell: npm run build chdir="{{ app_dir }}"
       shell: aperture link && nodejs build.js build chdir="{{ app_dir }}"
-      sudo_user: "{{ app_user }}"
+      become_user: "{{ app_user }}"
       environment:
         NODE_ENV: "{{ NODE_ENV }}"
         PROXY_URL: "{{ PROXY_URL }}"
@@ -44,38 +44,38 @@
 
     - name: copy system start script
       template: src=start.{{ app_name }}.sh dest="{{ base_dir }}/start.sh" mode=755
-      sudo_user: "{{ app_user }}"
+      become_user: "{{ app_user }}"
       tags:
       - update
 
     - name: copy app config
       template: src={{ app_name }}.config dest="{{ base_dir }}/{{ app_name }}.config" mode=755
-      sudo_user: "{{ app_user }}"
+      become_user: "{{ app_user }}"
       tags:
       - update
 
     - name: copy app start script
       template: src=start.{{ app_name }}.sh dest="{{ base_dir }}/start.{{ app_name }}.sh" mode=755
-      sudo_user: "{{ app_user }}"
+      become_user: "{{ app_user }}"
       tags:
       - update
 
     - name: set startup script
       lineinfile: dest="{{ base_dir }}/start.sh" state=present line="{{ base_dir }}/start.{{ app_name }}.sh"
-      sudo_user: "{{ app_user }}"
+      become_user: "{{ app_user }}"
       tags:
       - update
 
     - name: stop app
       command: forever stop server/server.js chdir="{{ app_dir }}"
-      sudo_user: "{{ app_user }}"
+      become_user: "{{ app_user }}"
       ignore_errors: yes
       tags:
       - update
 
     - name: start app
       shell: "{{ base_dir }}/start.{{ app_name }}.sh"
-      sudo_user: "{{ app_user }}"
+      become_user: "{{ app_user }}"
       tags:
       - update
 
