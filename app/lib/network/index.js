@@ -6,5 +6,5 @@ module.exports = function() {
     return e.match(regex)
   })[0]
 
-  return networkParam ? networkParam.replace(regex, '') : 'bitcoin'
+  return networkParam ? networkParam.replace(regex, '') : 'auroracoin'
 }
