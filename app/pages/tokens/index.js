@@ -11,14 +11,14 @@ module.exports = function(el){
       title: 'Available Tokens',
       id: 'token_dropdown',
       tokens: [
-        {
+       /* {
           token: 'bitcoin',
           bitcoin: true
         },
         {
           token: 'litecoin',
           litecoin: true
-        },
+        },*/
         {
           token: 'auroracoin',
           auroracoin: true
