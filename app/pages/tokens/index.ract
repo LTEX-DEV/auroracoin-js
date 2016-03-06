@@ -5,12 +5,12 @@
 
       <span class="_arrow">{{>svg_arrow}}</span>
       <span class="_icon">
-        {{#bitcoin}}
+       <!--  {{#bitcoin}}
           {{>svg_token_bitcoin}}
         {{/bitcoin}}
         {{#litecoin}}
           {{>svg_token_litecoin}}
-        {{/litecoin}}
+        {{/litecoin}} -->
         {{#auroracoin}}
           {{>svg_token_auroracoin}}
         {{/auroracoin}}
