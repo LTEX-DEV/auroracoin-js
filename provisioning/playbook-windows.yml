@@ -1,0 +1,110 @@
+---
+- hosts: 127.0.0.1
+  become : no
+  tasks:
+    - name: install npm globals
+      npm: state=present global=yes name={{ item }}
+      become: no
+      with_items:
+        - aperture
+        - forever
+
+    - name: install dependencies
+      shell: npm install --production chdir=""
+      become_user: "{{ app_user }}"
+      tags:
+      - update
+
+    - name: build
+      #shell: npm run build chdir="{{ app_dir }}"
+      shell: aperture link && nodejs build.js build chdir=""
+      become_user: "{{ app_user }}"
+      environment:
+        NODE_ENV: "{{ NODE_ENV }}"
+        PROXY_URL: "{{ PROXY_URL }}"
+        DB_HOST: "{{ DB_HOST }}"
+        DB_PASSWORD: "{{ DB_PASSWORD }}"
+        DB_PORT: "{{ DB_PORT }}"
+        DB_USER: "{{ DB_USER }}"
+        COOKIE_SALT: "{{ COOKIE_SALT }}"
+      tags:
+      - update
+      notify: reload nginx
+
+    - name: copy system start script
+      template: src=start.{{ app_name }}.sh dest="{{ base_dir }}/start.sh" mode=755
+      become_user: "{{ app_user }}"
+      tags:
+      - update
+
+    - name: copy app config
+      template: src={{ app_name }}.config dest="{{ base_dir }}/{{ app_name }}.config" mode=755
+      become_user: "{{ app_user }}"
+      tags:
+      - update
+
+    - name: copy app start script
+      template: src=start.{{ app_name }}.sh dest="{{ base_dir }}/start.{{ app_name }}.sh" mode=755
+      become_user: "{{ app_user }}"
+      tags:
+      - update
+
+    - name: set startup script
+      lineinfile: dest="{{ base_dir }}/start.sh" state=present line="{{ base_dir }}/start.{{ app_name }}.sh"
+      become_user: "{{ app_user }}"
+      tags:
+      - update
+
+    - name: stop app
+      command: forever stop server/server.js chdir="{{ app_dir }}"
+      become_user: "{{ app_user }}"
+      ignore_errors: yes
+      tags:
+      - update
+
+    - name: start app
+      shell: "{{ base_dir }}/start.{{ app_name }}.sh"
+      become_user: "{{ app_user }}"
+      tags:
+      - update
+
+    - name: remove default nginx site
+      file: path=/etc/nginx/sites-enabled/default state=absent
+      notify:
+        - reload nginx
+
+    - name: Copy nginx configuration for site
+      template: src={{ nginx_template }} dest=/etc/nginx/sites-available/{{ app_name }}
+      tags:
+        - update
+        - touch
+
+    - name: link sites-availible to sites-enabled
+      file: src=/etc/nginx/sites-available/{{ app_name }} dest=/etc/nginx/sites-enabled/{{ app_name }} state=link
+      notify:
+        - reload nginx
+      tags:
+        - update
+        - touch
+
+    - name: start nginx
+      service: name=nginx state=started enabled=true
+
+  handlers:
+    - name: reload nginx
+      service: name=nginx state=reloaded
+
+  vars:
+    app_user: administrator
+    app_name: hive-js
+    app_dir: "{{ base_dir }}{{ app_name }}"
+    base_dir: c:\
+    nginx_template: nginx-proxy.conf
+    node_port: 9999
+    NODE_ENV: ''
+    COOKIE_SALT: FILLMEIN
+    DB_HOST: 127.0.0.1
+    DB_PASSWORD: FILLMEIN
+    DB_PORT: FILLMEIN
+    DB_USER: FILLMEIN
+    PROXY_URL: https://hive-proxy.herokuapp.com?url=
