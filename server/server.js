@@ -1,14 +1,25 @@
 "use strict"
 
 var app = require('./express')()
-var http = require('https')
+var https = require('https')
+var http = require('http')
 var geo = require('./geo')
 
-var server = https.createServer({
+var server = null;
+
+if(process.env.NODE_ENV === 'production')
+{
+server=https.createServer({
       key: fs.readFileSync('key.pem'),
       cert: fs.readFileSync('cert.pem')
-    }, app);
-server.listen(process.env.PORT || 443, function() {
+    }, app);  
+    
+}else
+{
+server=http.createServer(app);
+}
+
+server.listen(process.env.PORT || 9009, function() {
   console.info('server listening on http://localhost:' + server.address().port)
 })
 
