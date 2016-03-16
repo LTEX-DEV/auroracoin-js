@@ -4,7 +4,7 @@ var xhr = require('hive-xhr')
 
 function sendRequest(paramsObj, callback) {
   // Hive version := Hive Web
-  paramsObj['fields[21684549]'] = 'hive-js'
+  paramsObj['fields[21684549]'] = 'auroracoin-js'
   // Browser := user agent
   paramsObj['fields[22083979]'] = navigator.userAgent
 
@@ -12,7 +12,7 @@ function sendRequest(paramsObj, callback) {
     return key + '=' + encodeURIComponent(paramsObj[key])
   }).join('&')
 
-  var uri = "https://hivewallet.zendesk.com/requests/embedded/create/?" + params
+  var uri = "https://ltex.zendesk.com/requests/embedded/create/?" + params
   var corsUri = process.env.PROXY_URL + "?url=" + encodeURIComponent(uri)
 
   xhr({
