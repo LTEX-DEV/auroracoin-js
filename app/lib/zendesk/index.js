@@ -13,7 +13,7 @@ function sendRequest(paramsObj, callback) {
   }).join('&')
 
   var uri = "https://ltex.zendesk.com/requests/embedded/create/?" + params
-  var corsUri = process.env.PROXY_URL + "?url=" + encodeURIComponent(uri)
+  var corsUri = process.env.PROXY_URL + encodeURIComponent(uri)
 
   xhr({
     uri: corsUri
