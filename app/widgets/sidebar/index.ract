@@ -2,7 +2,7 @@
 <div class="sidebar__header">
 
   <div class="sidebar__logo">
-    {{>svg_logo}}
+    <img src="/assets/img/logo_sidebar.png"></img>
   </div>
   <span class="sidebar__version">v0.3.3</span>
 
