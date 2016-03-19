@@ -12,6 +12,7 @@
         - nginx       
         - git-core
         - g++
+        - npm
 
     - name: install npm globals
       npm: state=present global=yes name={{ item }}
