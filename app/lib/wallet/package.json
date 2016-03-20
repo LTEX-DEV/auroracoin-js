@@ -7,7 +7,7 @@
   "license": "GPL-2.0+",
   "dependencies": {
     "bip39": "^2.1.2",
-    "bitcoinjs-lib": "^1.5.7",
+    "bitcoinjs-lib": "git://github.com/LTEX-DEV/bitcoinjs-lib.git#1.5.x",
     "cb-wallet": "git://github.com/LTEX-DEV/cb-wallet.git",
     "webworkify": "^1.0.0"
   },
