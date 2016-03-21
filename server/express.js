@@ -26,7 +26,7 @@ module.exports = function (){
     }
     app.use(helmet.csp({
       'default-src': ["'self'"],
-      'child-src': ["'self'", "blob:"],
+      'frame-src': ["'self'", "blob:"],
       'connect-src': [
         "'self'", "blob:",
         'api.bitcoinaverage.com', 'chain.so', 'bittrex.com', // tickers
