@@ -25,8 +25,8 @@ module.exports = function (){
       proxyHost = proxyHost.substring(0, proxyQueryIndex)
     }
     app.use(helmet.csp({
+      'child-src': ["'self'", "blob:"],
       'default-src': ["'self'"],
-      'frame-src': ["'self'", "blob:"],
       'connect-src': [
         "'self'", "blob:",
         'api.bitcoinaverage.com', 'chain.so', 'bittrex.com', // tickers
