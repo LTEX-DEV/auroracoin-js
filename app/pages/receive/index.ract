@@ -8,6 +8,67 @@
     </span>
   </div>
 </div>
+
+<div class="send__amount">
+
+        <label class="_label" for="auroracoin">{{translate("Amount")}}</label>
+
+          <div class="_input-group">
+            <input id="bitcoin" class="_input" type="number" min="0" value="{{value}}" on-keyup="bitcoin-to-fiat" on-enter="open-send" on-focus="focusAmountInput" on-blur="blurAmountInput">
+            <span class="_currency">{{denomination}}</span>
+          </div>
+
+          {{^exchangeRateUnavailable}}
+          <div class="_input-group">
+            <input id="fiat" class="_input" type="number" min="0" value="{{fiatValue}}" on-keyup="fiat-to-bitcoin" on-focus="focusAmountInput" on-blur="blurAmountInput">
+            <span class="_currency dropdown">
+              <select value="{{selectedFiat}}">
+                {{#currencies}}
+                  <option value="{{.}}">{{.}}</option>
+                {{/currencies}}
+              </select>
+            </span>
+          </div>
+          {{/exchangeRateUnavailable}}
+
+          {{#exchangeRateUnavailable}}
+          <div class="_input-group">
+            <input id="fiat" class="_input _error" type="number" min="0" value="{{fiatValue}}" on-keyup="fiat-to-bitcoin" on-focus="focusAmountInput" on-blur="blurAmountInput">
+            <span class="_currency--error dropdown">
+              <select value="{{selectedFiat}}">
+                {{#currencies}}
+                  <option value="{{.}}">{{.}}</option>
+                {{/currencies}}
+              </select>
+            </span>
+          </div>
+          <div class="_input-error__message">
+            <span>{{translate("Exchange rate unavailable for the selected currency")}}</span>
+          </div>
+          {{/exchangeRateUnavailable}}
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="geo__label">
 {{^broadcasting}}
   <h3 class="_title">{{translate("Waggle")}}</h3>
