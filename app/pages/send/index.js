@@ -31,6 +31,9 @@ module.exports = function(el){
   emitter.on('prefill-wallet', function(address) {
     ractive.set('to', address)
   })
+  emitter.on('prefill-price', function(price) {
+    ractive.set('bitcoin', price)
+  })
 
   ractive.on('open-geo', function(){
     var data = {
