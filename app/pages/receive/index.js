@@ -54,13 +54,24 @@ module.exports = function(el){
   function waggleOn(){
     ractive.set('connecting', true)
     ractive.set('btn_message', 'Checking your location')
+   
+   var price = ractive.get('bitcoin')
+    var info={price:price}
+    
+    geo.setAddtionalInfo(info,function(){
+   
     geo.save(function(err){
       if(err) return handleWaggleError(err)
       ractive.set('connecting', false)
       ractive.set('broadcasting', true)
       ractive.set('btn_message', 'Turn Waggle off')
     })
+    
+    })
   }
+  
+  
+ 
 
   window.addEventListener('beforeunload', removeGeoData)
 
