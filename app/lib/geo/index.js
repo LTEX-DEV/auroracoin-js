@@ -22,6 +22,13 @@ function fetchUserInfo(callback){
   })
 }
 
+function setAddtionalInfo(info,callback)
+{
+  userInfo.addInfo=info;
+  
+    callback()
+}
+
 function save(callback){
   requestLocationEndpoint('POST', function(err, resp, body){
     if(!resp || resp.statusCode !== 201) {
@@ -99,5 +106,6 @@ function requestLocationEndpoint(method, callback){
 module.exports = {
   search: search,
   save: save,
-  remove: remove
+  remove: remove,
+  setAddtionalInfo:setAddtionalInfo
 }
