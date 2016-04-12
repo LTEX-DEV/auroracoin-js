@@ -38,7 +38,7 @@
     <div class="geo__results">
       <div class="_item" on-click="select"
         data-wallet={{address}}
-        data-price={{price}}
+        data-price={{addInfo.price}}
         data-name={{name}}
         data-email={{email}}>
         <img class="_avatar" src="{{getAvatar(email, avatarIndex)}}" />
