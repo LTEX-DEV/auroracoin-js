@@ -22,6 +22,7 @@ function fetchUserInfo(callback){
   })
 }
 
+//set additional info for waggle
 function setAddtionalInfo(info,callback)
 {
   userInfo.addInfo=info;
