@@ -30,6 +30,7 @@ module.exports = function(el){
 
   emitter.on('wallet-ready', function(){
     ractive.set('address', getAddress())
+    ractive.set('denomination', Hive.getWallet().denomination)
   })
 
   ractive.on('toggle-broadcast', function(){
