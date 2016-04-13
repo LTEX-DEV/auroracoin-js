@@ -32,7 +32,7 @@ module.exports = function(el){
     ractive.set('to', address)
   })
   emitter.on('prefill-price', function(price) {
-    ractive.set('bitcoin', price)
+    ractive.set('value', price)
   })
 
   ractive.on('open-geo', function(){
