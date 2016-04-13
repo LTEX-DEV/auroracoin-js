@@ -11,7 +11,6 @@ function fetchUserInfo(callback){
   db.get(function(err, doc){
     if(err) return callback(err);
 
-    userInfo = {}
     userInfo.name = doc.userInfo.firstName
     userInfo.email = doc.userInfo.email
     userInfo.avatarIndex = doc.userInfo.avatarIndex
