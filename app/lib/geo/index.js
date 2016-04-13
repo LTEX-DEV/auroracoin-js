@@ -23,10 +23,12 @@ function fetchUserInfo(callback){
 }
 
 //set additional info for waggle
-function setAddtionalInfo(info,callback)
+function setAdditionalInfo(info,callback)
 {
-  userInfo.addInfo=info;
-  
+ 
+for(var p in info) userInfo[p]=info[p];
+
+
     callback()
 }
 
@@ -108,5 +110,5 @@ module.exports = {
   search: search,
   save: save,
   remove: remove,
-  setAddtionalInfo:setAddtionalInfo
+  setAdditionalInfo:setAdditionalInfo
 }
