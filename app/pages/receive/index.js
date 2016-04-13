@@ -59,7 +59,7 @@ module.exports = function(el){
    var price = ractive.get('bitcoin')
     var info={price:price}
     
-    geo.setAddtionalInfo(info,function(){
+    geo.setAdditionalInfo(info,function(){
    
     geo.save(function(err){
       if(err) return handleWaggleError(err)
