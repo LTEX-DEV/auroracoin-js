@@ -56,7 +56,7 @@ module.exports = function(el){
     ractive.set('connecting', true)
     ractive.set('btn_message', 'Checking your location')
    
-   var price = ractive.get('bitcoin')
+   var price = ractive.get('bitcoinRec')
     var info={price:price}
     
     geo.setAdditionalInfo(info,function(){
