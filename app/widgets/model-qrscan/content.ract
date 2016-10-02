@@ -1,0 +1,14 @@
+<div class="modal _cancel">
+  <div class="modal__content qrscan__container">
+     <span class="modal__ok" on-click="ok">
+      {{>svg_ok}}
+    </span>
+    <span class="modal__cancel" on-click="close">
+      {{>svg_close}}
+    </span>
+    
+    <div id="qrscan-canvas"></div>
+ 
+    </div>
+  </div>
+</div>
