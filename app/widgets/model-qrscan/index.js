@@ -20,7 +20,7 @@ module.exports = function showTooltip(){
   
   var qrDecoder=new QCodeDecoder()
   
- if(!qr.isCanvasSupported()||!qr.hasGetUserMedia())
+ if(!qrDecoder.isCanvasSupported()||!qrDecoder.hasGetUserMedia())
  {
  var msgNode=ractive.nodes['msg']
  
