@@ -45,7 +45,7 @@ module.exports = function(el){
   })
 
   ractive.on('scan-qr',function(){
-    scanQr();
+    scanQr()
   });
   
   
