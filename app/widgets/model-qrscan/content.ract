@@ -1,5 +1,6 @@
 <div class="modal _cancel">
   <div class="modal__content qrscan__container">
+  <p id="msg"></p>
      <span class="modal__ok" on-click="ok">
       {{>svg_ok}}
     </span>
@@ -7,8 +8,10 @@
       {{>svg_close}}
     </span>
     
-    <div id="qrscan-canvas"></div>
- 
+    <div id="qrscan-canvas"><video autoplay="" id="camera" poster=""></video></div>
+  <span class="modal__ok" on-click="capture">
+     Capture
+    </span>
     </div>
   </div>
 </div>
