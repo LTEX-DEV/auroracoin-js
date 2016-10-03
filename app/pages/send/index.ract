@@ -19,6 +19,13 @@
             {{>svg_waggle}}
           </span>
         </div>
+        
+        <div class="_btn" on-click="scan-qr">
+          <span class="_icon">
+            {{>svg_waggle}}
+          </span>
+        </div>
+        
       </div>
 
       <div class="send__amount">
