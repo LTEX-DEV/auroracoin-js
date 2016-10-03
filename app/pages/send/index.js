@@ -9,6 +9,7 @@ var currencies = require('hive-ticker-api').currencies
 var toFixedFloor = require('hive-convert').toFixedFloor
 var showError = require('hive-modal-flash').showError
 var showInfo = require('hive-modal-flash').showInfo
+var scanQr= require('hive-modal-qrscan')
 var showConfirmation = require('hive-modal-confirm-send')
 var validateSend = require('hive-wallet').validateSend
 
@@ -43,6 +44,11 @@ module.exports = function(el){
     emitter.emit('open-overlay', data)
   })
 
+  ractive.on('scan-qr',function(){
+    scanQr();
+  });
+  
+  
   emitter.on('send-confirm-open', function() {
     ractive.set('validating', false)
   })
