@@ -14,32 +14,27 @@ module.exports = function showTooltip(){
     data:
     {
     address:"",
-    amount:""
+    amount:"",
+      msg:""
     }    
   })
   
   var qrDecoder=new QCodeDecoder()
   
- if(!qrDecoder.isCanvasSupported()||!qrDecoder.hasGetUserMedia())
- {
- var msgNode=ractive.nodes['msg']
- 
- msgNode.appendChild('<span>Your browser does not match the required specs. Canvas and getUserMedia are require. </span>')
- 
- }
-ractive.on('capture',function(){
-   var canvas = document.querySelector("#qrscan-canvas video")
-   
-   qrDecoder.decodeFromCamera(canvas, function(er,res){
-     
-    var msgNode=ractive.nodes['msg']
+ if(!qrDecoder.isCanvasSupported()||!qrDecoder.hasGetUserMedia()) {
+  
+ ractive.set('msg','Your browser does not match the required specs. Canvas and getUserMedia are require.')
+  }
+
+  function videoHandler(er,res){
      
      if(er)
      {
-     msgNode.appendChild('<span>' + er + '</span>')
-     }else
+     ractive.set('msg',er)
+     }
+    else
      {
-     msgNode.appendChild('<span>' + res + '</span>')
+     ractive.set('msg',res)
      
      var splt=res.split("?")
      
@@ -49,14 +44,19 @@ ractive.on('capture',function(){
      ractive.set('address',address)
      ractive.set('amount',amount)
      
-     }
+     }      
       
-      
-  },!0)
+  }  
+  
+  
+  function startCapturing(){
+   var canvas = ractive.nodes["camera"]
+   
+   qrDecoder.decodeFromCamera(canvas,videoHandler,!0)
+ }
+   
+  startCapturing()
  
-})
- 
-
   ractive.on('close', function(){
     ractive.fire('cancel')
   })
