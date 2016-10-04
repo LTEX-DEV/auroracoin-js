@@ -8,7 +8,7 @@
       Close
     </span>
     
-    <div id="qrscan-canvas"><video autoplay="" id="camera" poster=""></video></div>
+    <div id="qrscan-canvas"><video autoplay="" poster=""></video></div>
   <span class="modal__ok" on-click="capture">
      Capture
     </span>
