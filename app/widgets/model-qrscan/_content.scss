@@ -1,8 +1,66 @@
+.qr__info{
 
-#qrscan-canvas #camera {
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  ._amount {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+
+    ._value {
+      @extend .jigsaw-light;
+      font-size: 32px;
+
+      @include breakpoint(portrait) {
+        font-size: 48px;
+      }
+    }
+
+    ._currency {
+      @extend .jigsaw-light;
+      font-size: 14px;
+      padding-top: 6px;
+      margin-left: 3px;
+
+      @include breakpoint(portrait) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  ._address {
+    @include wrapdat;
+    @extend .jigsaw-light;
+    font-size: 13px;
+    display: block;
+    text-align: center;
+    @include breakpoint(portrait) {
+      font-size: 18px;
+    }
+  }
+}
+
+
+.qr_inputs
+{
+  display:flex;
+  
+  .done , .refresh{
+      @extend .hivebtn;
+      max-width: 140px;
+      margin: 0 auto;
+    }
+    
+}
+
+#camera {
   margin: 0 auto;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
 }
 
 .qrscan__container {
