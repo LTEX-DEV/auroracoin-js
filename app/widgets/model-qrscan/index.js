@@ -28,7 +28,7 @@ module.exports = function showTooltip(){
  
  }
 ractive.on('capture',function(){
-   var canvas = ractive.nodes['camera']
+   var canvas = document.querySelector("#qrscan-canvas video")
    
    qrDecoder.decodeFromCamera(canvas, function(er,res){
      
