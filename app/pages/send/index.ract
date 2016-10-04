@@ -21,9 +21,9 @@
         </div>
         
         <div class="_btn" on-click="scan-qr">
-          <span class="_icon">
-            {{>svg_waggle}}
-          </span>
+         <span class="_icon">
+      {{>svg_expand}}
+</span>
         </div>
         
       </div>
