@@ -45,11 +45,17 @@
 }
 
 
-.qr_inputs
+.qr__inputs
 {
   display:flex;
   
-  .done , .refresh{
+  ._done {
+      @extend .hivebtn;
+      max-width: 140px;
+      margin: 0 auto;
+    }
+  
+  ._refresh{
       @extend .hivebtn;
       max-width: 140px;
       margin: 0 auto;
