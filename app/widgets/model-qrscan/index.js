@@ -15,7 +15,8 @@ module.exports = function showTooltip(){
     {
     address:"",
     amount:"",
-      msg:""
+    msg:"",
+    scanned:false
     }    
   })
   
@@ -34,7 +35,7 @@ module.exports = function showTooltip(){
      }
     else
      {
-     ractive.set('msg',res)
+    
      
      var splt=res.split("?")
      
@@ -43,7 +44,7 @@ module.exports = function showTooltip(){
      
      ractive.set('address',address)
      ractive.set('amount',amount)
-     
+     ractive.set('scanned',true)
      }      
       
   }  
