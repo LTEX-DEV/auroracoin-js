@@ -61,10 +61,15 @@ module.exports = function showTooltip(){
     ractive.fire('cancel')
   })
 
-ractive.on('ok',function()
+  ractive.on('refresh',function(){
+     startCapturing()
+  })
+  
+ractive.on('done',function()
 {
 emitter.emit('prefill-wallet', ractive.get('address'))
 emitter.emit('prefill-price', ractive.get('amount'))
+ractive.fire('cancel')
 })
 
   return ractive
