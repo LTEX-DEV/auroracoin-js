@@ -2,10 +2,10 @@
   <div class="modal__content qrscan__container">
   <p id="msg"></p>
      <span class="modal__ok" on-click="ok">
-      {{>svg_ok}}
+      OK
     </span>
     <span class="modal__cancel" on-click="close">
-      {{>svg_close}}
+      Close
     </span>
     
     <div id="qrscan-canvas"><video autoplay="" id="camera" poster=""></video></div>
