@@ -22,14 +22,12 @@
 </div>
  {{/scanned}}
  
- <div class="qrscan__inputs">
- <span class="_done" on-click="done">
+ <div class="confirm__inputs">
+ <div class="_done" on-click="done">
       Done
-    </span> 
+    </div> 
     <div class="_refresh" on-click="refresh">
-     <span class="_icon">
-            {{>svg_refresh}}
-</span>
+     Refresh
     </div>
     </div>
     
