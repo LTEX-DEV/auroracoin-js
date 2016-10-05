@@ -45,23 +45,37 @@
 }
 
 
-.qr__inputs
-{
-  display:flex;
-  
-  ._done {
-      @extend .hivebtn;
-      max-width: 140px;
-      margin: 0 auto;
+
+
+.confirm__inputs {
+
+  padding: 20px;
+  background-color: white;
+  border-radius: 3px;
+
+  display: flex;
+
+  ._refresh {
+    @extend .hivebtn;
+    margin-right: 5px;
+
+    @include breakpoint(portrait) {
+      font-size: 24px;
     }
-  
-  ._refresh{
-      @extend .hivebtn;
-      max-width: 140px;
-      margin: 0 auto;
-    }
+
     
+  }
+
+  ._done {
+    @extend .hivebtn;
+    margin-left: 5px;
+
+    @include breakpoint(portrait) {
+      font-size: 24px;
+    }
 }
+
+
 
 #camera {
   margin: 0 auto;
@@ -72,7 +86,7 @@
 .qrscan__container {
   font-size: 18px;
   min-width: 280px;
-  max-width: 350px;
+  max-width: 380px;
   @include breakpoint(portrait) {
     max-width: 550px;
   }
