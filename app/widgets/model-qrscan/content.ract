@@ -22,7 +22,7 @@
 </div>
  {{/scanned}}
  
- <div class="qr__inputs">
+ <div class="qrscan__inputs">
  <span class="_done" on-click="done">
       Done
     </span> 
