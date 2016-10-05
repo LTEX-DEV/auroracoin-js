@@ -57,7 +57,7 @@
 
   ._refresh {
     @extend .hivebtn;
-    margin-right: 5px;
+    margin-left: 5px;
 
     @include breakpoint(portrait) {
       font-size: 24px;
@@ -68,7 +68,7 @@
 
   ._done {
     @extend .hivebtn;
-    margin-left: 5px;
+    margin-right: 5px;
 
     @include breakpoint(portrait) {
       font-size: 24px;
@@ -80,8 +80,8 @@
 
 #camera {
   margin: 0 auto;
-  width: 280px;
-  height: 280px;
+  min-width: 250px;
+  min-height: 250px;
 }
 
 .qrscan__container {
