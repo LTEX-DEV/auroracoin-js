@@ -2,12 +2,14 @@
 
 var xhr = require('xhr')
 var currencies = require('./currencies')
-var ltcToBtc = require('./sochain').ltcToBtc
+//var ltcToBtc = require('./sochain').ltcToBtc
+var aurToBtc = require('./sochain').aurToBtc
 
 var ExchangeRateFunctions = {
-  bitcoin: getExchangeRates,
-  testnet: getExchangeRates,
-  litecoin: getLitecoinExchangeRates
+ // bitcoin: getExchangeRates,
+//  testnet: getExchangeRates,
+//  litecoin: getLitecoinExchangeRates,
+  auroracoin:getAuroracoinExchangeRates
 }
 
 function BitcoinAverage(network){
@@ -18,21 +20,35 @@ function BitcoinAverage(network){
 }
 BitcoinAverage.apiRoot = "https://api.bitcoinaverage.com/ticker/"
 
-function getLitecoinExchangeRates(callback){
+/*function getLitecoinExchangeRates(callback){
   ltcToBtc(function(err, ltcRate){
+    if(err) return callback(err);
+    getExchangeRates(function(err, rates){
+      if(err) return callback(err);
+      for(var currency in rates){
+        rates[currency] = rates[currency] * ltcRate
+      }
+      callback(null, rates)
+    })
+  })
+} */
+
+function getAuroracoinExchangeRates(callback){
+  aurToBtc(function(err, aurRate){
     if(err) return callback(err);
 
     getExchangeRates(function(err, rates){
       if(err) return callback(err);
 
       for(var currency in rates){
-        rates[currency] = rates[currency] * ltcRate
+        rates[currency] = rates[currency] * aurRate
       }
 
       callback(null, rates)
     })
   })
 }
+
 
 function getExchangeRates(callback){
   var uri = BitcoinAverage.apiRoot + "global/all"
