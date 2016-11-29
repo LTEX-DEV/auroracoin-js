@@ -4,10 +4,14 @@
   "CAD",
   "CHF",
   "CNY",
+  "DKK",
   "EUR",
   "GBP",
+  "IDR",
   "ILS",
+  "ISK",
   "JPY",
+  "MXN",
   "NOK",
   "NZD",
   "PLN",
@@ -15,6 +19,7 @@
   "SEK",
   "SGD",
   "TRY",
+  "UAH",
   "USD",
   "ZAR"
 ]
