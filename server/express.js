@@ -29,7 +29,7 @@ module.exports = function (){
       'default-src': ["'self'","blob:"],
       'connect-src': [
         "'self'", "blob:",
-        'api.bitcoinaverage.com', 'chain.so', 'bittrex.com', // tickers
+        'apiv2.bitcoinaverage.com', 'chain.so', 'bittrex.com', // tickers
         'btc.blockr.io', 'tbtc.blockr.io', 'ltc.blockr.io', // blockchain APIs
         process.env.DB_HOST, proxyHost
       ],
