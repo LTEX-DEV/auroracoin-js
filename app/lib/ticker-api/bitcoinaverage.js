@@ -18,7 +18,7 @@ function BitcoinAverage(network){
     throw new Error(network + " price ticker is not supported")
   }
 }
-BitcoinAverage.apiRoot = "https://api.bitcoinaverage.com/ticker/"
+BitcoinAverage.apiRoot = "https://apiv2.bitcoinaverage.com/ticker/"
 
 /*function getLitecoinExchangeRates(callback){
   ltcToBtc(function(err, ltcRate){
