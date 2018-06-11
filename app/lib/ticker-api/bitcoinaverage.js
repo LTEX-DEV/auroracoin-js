@@ -18,7 +18,7 @@ function BitcoinAverage(network){
     throw new Error(network + " price ticker is not supported")
   }
 }
-BitcoinAverage.apiRoot = "https://apiv2.bitcoinaverage.com/ticker/"
+BitcoinAverage.apiRoot = "https://apiv2.bitcoinaverage.com/indices/global/ticker/short"
 
 /*function getLitecoinExchangeRates(callback){
   ltcToBtc(function(err, ltcRate){
@@ -54,7 +54,7 @@ function getAuroracoinExchangeRates(callback){
 
 
 function getExchangeRates(callback){
-  var uri = BitcoinAverage.apiRoot + "global/all"
+  var uri = BitcoinAverage.apiRoot + "?crypto=BTC&fiat=AUD,BRL,CAD,CHF,CNY,DKK,EUR,GBP,IDR,ILS,ISK,JPY,MXN,NOK,NZD,PLN,RUB,SEK,SGD,TRY,UAH,USD,ZAR"
   xhr({
     uri: uri,
     timeout: 10000,
